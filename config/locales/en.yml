@@ -30,3 +30,8 @@ en:
   please_log_in: "Please log in."
   all_users: "All users"
   change: "Change"
+  following: "following"
+  followers: "followers"
+  view_my_profile: "view my profile"
+  follow: "Follow"
+  unfollow: "Unfollow"
