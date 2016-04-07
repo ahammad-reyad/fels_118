@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       remember user
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
-      redirect_back_or user
+      user.is_admin? redirect_to(admin_users_path) : redirect_back_or(user)
     else
       flash.now[:danger] = t :invalid_email_password
       render :new

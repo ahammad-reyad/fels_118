@@ -35,3 +35,6 @@ en:
   view_my_profile: "view my profile"
   follow: "Follow"
   unfollow: "Unfollow"
+  delete: "delete"
+  delete_confirm: "You sure?"
+  user_deleted: "User deleted"
