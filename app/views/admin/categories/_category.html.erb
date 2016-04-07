@@ -1,0 +1,7 @@
+<li>
+  <%= link_to category.category_name, edit_admin_category_path(category) %>
+  <% if current_user.is_admin? %>
+    | <%= link_to t(:delete), admin_category_path(category), method: :delete,
+      data: {confirm: t(:delete_confirm)} %>
+  <% end %>
+</li>
