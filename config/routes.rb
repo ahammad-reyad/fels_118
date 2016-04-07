@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   post   "login"  => "sessions#create"
   delete "logout" => "sessions#destroy"
   resources :users
+  namespace :admin do
+    root "users#index"
+    resources :users
+  end
   resources :relationships, only: [:index, :create, :destroy]
 end
