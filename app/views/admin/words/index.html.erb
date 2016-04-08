@@ -1,0 +1,7 @@
+<% provide :title, t(:all_words) %>
+<h1><%= t :all_words %></h1>
+<%= link_to t(:word_create), new_admin_word_path, class: "btn btn-lg btn-primary" %>
+<ul class="users">
+  <%= render @words %>
+</ul>
+<%= will_paginate %>

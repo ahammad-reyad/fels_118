@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root "users#index"
     resources :users
     resources :categories
+    resources :words
   end
   resources :relationships, only: [:index, :create, :destroy]
 end

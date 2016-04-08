@@ -1,0 +1,7 @@
+<li>
+  <%= link_to word.content, edit_admin_word_path(word) %>
+  <% if current_user.is_admin? %>
+    | <%= link_to t(:delete), admin_word_path(word), method: :delete,
+      data: {confirm: t(:delete_confirm)} %>
+  <% end %>
+</li>

@@ -1,0 +1,9 @@
+<div class="answer_fields">
+  <div class="form-inline">
+    <p>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.check_box :is_correct %>
+    </p>
+  </div>
+  <%= link_to_remove_fields t(:remove), f %>
+</div>
