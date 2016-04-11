@@ -1,0 +1,6 @@
+<% provide :title, t(:all_categories) %>
+<h1><%= t :all_categories %></h1>
+<ul class="users">
+  <%= render @categories %>
+</ul>
+<%= will_paginate %>
