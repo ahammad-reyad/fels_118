@@ -26,3 +26,33 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $(link).parent().prev().append(content.replace(regexp, new_id));
 }
+
+function nextWord(currentWord) {
+  var nextWord = currentWord.next(".word-item");
+
+  if(nextWord.length > 0) {
+    nextWord.removeClass("hide");
+    currentWord.addClass("hide");
+  }
+}
+
+function prevWord(currentWord) {
+  var prevWord = currentWord.prev(".word-item");
+
+  if (prevWord.length > 0) {
+    prevWord.removeClass("hide");
+    currentWord.addClass("hide");
+  }
+}
+
+$(document).ready(function(){
+  $("#previous").click(function(){
+    var $currentWord = $(".edit_lesson").find(".word-item:visible");
+    prevWord($currentWord);
+  })
+
+  $("#next").click(function(){
+    var $currentWord = $(".edit_lesson").find(".word-item:visible");
+    nextWord($currentWord);
+  })
+})

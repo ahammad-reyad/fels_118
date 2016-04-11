@@ -1,0 +1,22 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= t :word %></th>
+      <th><%= t :option %></th>
+      <th><%= t :result %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lesson.results.each do |result| %>
+      <tr>
+        <td><%= result.word.content %></td>
+        <td>
+          <%= result.answer.try(:content) ? result.answer.content : t(:not_selected) %>
+        </td>
+        <td>
+          <%= result.answer.try(:is_correct) ? t(:correct) : t(:incorrect) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
