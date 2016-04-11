@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [:admin, @word] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.select :category_id, options_from_collection_for_select(@categories,
+        "id", "category_name") %>
+      <%= f.label :content %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.label :content, t(:options) %>
+      <div id="answers_list">
+        <%= f.fields_for :answers do |answer_builder| %>
+          <%= render "answer_fields", f: answer_builder %>
+        <% end %>
+      </div>
+      <p><%= link_to_add_fields t(:add_answer), f, :answers %></p>
+      <%= f.submit t(:word_create), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
