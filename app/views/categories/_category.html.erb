@@ -1,0 +1,7 @@
+<li>
+  <b><%= category.category_name %></b>
+  <%= form_for (category.lessons.build) do |f| %>
+    <%= hidden_field_tag :category, category.id %>
+    <%= f.submit t(:start_a_lesson), class: "btn btn-lg btn-primary" %>
+  <% end %>
+</li>
