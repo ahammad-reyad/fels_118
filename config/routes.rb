@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :categories
   resources :lessons
+  resources :words
   namespace :admin do
     root "users#index"
     resources :users

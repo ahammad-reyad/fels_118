@@ -8,6 +8,8 @@
         <%= render "shared/stats" %>
       </section>
     </aside>
+    <%= link_to t(:all_categories), categories_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to t(:all_words), words_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% else %>
   <div class="center jumbotron">

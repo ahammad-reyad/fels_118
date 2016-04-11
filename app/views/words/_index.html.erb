@@ -1,0 +1,22 @@
+<% unless @words.blank? %>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t :word %></th>
+        <th><%= t :meaning %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @words.each do |word| %>
+        <tr>
+          <td><%= link_to word.content, word %></td>
+          <td>
+            <% word.answers.each do |answer| %>
+              <%= answer.content if answer.is_correct? %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
