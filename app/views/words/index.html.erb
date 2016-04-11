@@ -1,0 +1,23 @@
+<% provide :title, t(:all_words) %>
+<h1><%= t(:all_words) %></h1>
+<div class="form-inline">
+  <%= form_for words_path, remote: true, method: "get"  do  %>
+    <div class="col-md-2">
+      <%= select_tag :category_id,
+        options_from_collection_for_select(@categories, "id", "category_name") %>
+    </div>
+    <% Word::OPTION.each do |key, value| %>
+      <div class="form-group">
+        <%= radio_button_tag :option, value,
+          (checked = true if params[:option].to_s == value.to_s) %>
+        <%= label_tag(:option_tag, t(value)) %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= submit_tag :Search, name: nil, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<div class="row" id="show-words">
+  <%= render "index" %>
+</div>
