@@ -1,5 +1,7 @@
 class WordsController < ApplicationController
   before_action :logged_in_user
+  before_action :not_admin_user
+
   def index
     @categories = Category.all
     if params[:category_id]

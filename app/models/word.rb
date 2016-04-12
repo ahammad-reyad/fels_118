@@ -6,6 +6,8 @@ class Word < ActiveRecord::Base
   accepts_nested_attributes_for :answers,
     reject_if: lambda {|attribute| attribute[:content].blank?},
     allow_destroy: true
+  validates :content, presence: true
+  before_save :must_be_a_correct_answer
 
   scope :learned, ->user_id, category_id{
     where("id in (select results.word_id from results join answers
@@ -32,6 +34,13 @@ class Word < ActiveRecord::Base
       else
         category.words
       end
+    end
+  end
+
+  private
+  def must_be_a_correct_answer
+    unless self.answers.select{|answer| answer.is_correct}.size == 1
+      errors.add " ", I18n.t("must_be_a_answer_correct")
     end
   end
 end
