@@ -10,6 +10,12 @@
     </aside>
     <%= link_to t(:all_categories), categories_path, class: "btn btn-lg btn-primary" %>
     <%= link_to t(:all_words), words_path, class: "btn btn-lg btn-primary" %>
+    <div class="col-md-8">
+      <ul class="users">
+        <%= render @activities %>
+      </ul>
+      <%= will_paginate @activities %>
+    </div>
   </div>
 <% else %>
   <div class="center jumbotron">

@@ -14,4 +14,10 @@
   <div class="col-md-8">
     <%= render "follow_form" if logged_in? %>
   </div>
+  <div class="col-md-8">
+    <ul class="users">
+      <%= render @activities %>
+    </ul>
+    <%= will_paginate @activities %>
+  </div>
 </div>
