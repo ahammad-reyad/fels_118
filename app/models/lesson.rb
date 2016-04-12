@@ -13,7 +13,7 @@ class Lesson < ActiveRecord::Base
 
   private
   def assign_words
-    words = self.category.words.order("RANDOM()").limit 2
+    words = self.category.words.order("RANDOM()").limit 10
     words.each{|word| self.results.build word: word}
   end
 

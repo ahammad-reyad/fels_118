@@ -30,7 +30,9 @@ module SessionsHelper
   end
 
   def admin_user?
-    current_user.is_admin?
+    if logged_in?
+      current_user.is_admin?
+    end
   end
 
   def forget user
