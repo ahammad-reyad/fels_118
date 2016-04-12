@@ -73,3 +73,7 @@ en:
   next: "next"
   submit: "submit"
   not_selected: "not selected"
+  lesson_start_activity: "Started learning from %{category_name}"
+  started_following: "%{follower_name} started following %{name}"
+  started_unfollowing: "%{unfollower_name} unfollowing %{name}"
+  lesson_end_activity: "Learned %{correct_answer} words from %{category_name}"

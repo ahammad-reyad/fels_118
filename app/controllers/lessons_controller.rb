@@ -18,6 +18,7 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.find_by id: params[:id]
+    create_learned_activity
     @lesson.update_attributes lesson_params
     respond_to do |format|
       format.js
@@ -28,5 +29,12 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit :category_id,
       results_attributes: [:id, :answer_id]
+  end
+
+  def create_learned_activity
+    Activity.create user_id: current_user.id, details:
+      I18n.t("lesson_end_activity", correct_answer:
+      @lesson.number_correct_choices, category_name:
+      @lesson.category.category_name)
   end
 end
