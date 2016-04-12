@@ -18,11 +18,11 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.find_by id: params[:id]
-    create_learned_activity
     @lesson.update_attributes lesson_params
     respond_to do |format|
       format.js
     end
+    create_learned_activity
   end
 
   private

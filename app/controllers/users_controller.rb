@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities.paginate page: params[:page]
   end
 
   def new

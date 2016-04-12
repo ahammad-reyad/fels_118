@@ -55,4 +55,7 @@ class User < ActiveRecord::Base
     following.include? other_user
   end
 
+  def following_activities
+    Activity.where "user_id in (?)", self.following.pluck(:id)
+  end
 end
