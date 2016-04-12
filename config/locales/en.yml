@@ -77,3 +77,5 @@ en:
   started_following: "%{follower_name} started following %{name}"
   started_unfollowing: "%{unfollower_name} unfollowing %{name}"
   lesson_end_activity: "Learned %{correct_answer} words from %{category_name}"
+  please_log_in_as_user: "Please login as non admin user"
+  must_be_a_answer_correct: "Word must be a have correct answer"

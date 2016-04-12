@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :logged_in_user
+  before_action :not_admin_user
 
   def create
     @lesson = current_user.lessons.new lesson_params

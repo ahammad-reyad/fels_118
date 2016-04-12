@@ -40,7 +40,7 @@ class Admin::WordsController < ApplicationController
   def destroy
     @word = Word.find params[:id]
     @word.destroy
-    flash[:success] = t :category_deleted
+    flash[:success] = t :word_deleted
     redirect_to admin_words_path
   end
 

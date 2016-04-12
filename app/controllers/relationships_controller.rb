@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :logged_in_user
+  before_action :not_admin_user
   before_action :create_follow_activity, only: [:create]
   before_action :create_unfollow_activity, only: [:destroy]
 
