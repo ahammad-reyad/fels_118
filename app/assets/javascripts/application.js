@@ -45,6 +45,10 @@ function prevWord(currentWord) {
   }
 }
 
+function backToCategory() {
+  window.history.back();
+}
+
 $(document).ready(function(){
   $("#previous").click(function(){
     var $currentWord = $(".edit_lesson").find(".word-item:visible");
@@ -55,4 +59,13 @@ $(document).ready(function(){
     var $currentWord = $(".edit_lesson").find(".word-item:visible");
     nextWord($currentWord);
   })
+
+  $("#modal_close").click(function(){
+    backToCategory();
+  })
+
+  $("#modal_cancel").click(function(){
+    backToCategory();
+  })
+
 })
