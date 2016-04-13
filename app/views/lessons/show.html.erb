@@ -1,27 +1,32 @@
 <% provide :title, t(:lesson) %>
 <h1> <%= @lesson.category.category_name %> </h1>
 
-<%= form_for [@lesson.category, @lesson], remote: true do |f| %>
-  <%= f.fields_for :results do |result_builder| %>
-    <% result = result_builder.object %>
-    <% word = result.word %>
+<div class="row">
+  <aside class="col-sm-4">
+  </aside>
+  <aside class="col-sm-4">
+    <%= form_for [@lesson.category, @lesson], remote: true do |f| %>
+      <%= f.fields_for :results do |result_builder| %>
+        <% result = result_builder.object %>
+        <% word = result.word %>
 
-    <div class="word-item <%= t :hide unless result_builder.index == 0 %> ">
-      <%= result_builder.hidden_field :id %>
-      <p><strong><%= word.content %></strong></p>
+        <div class="word-item <%= t :hide unless result_builder.index == 0 %> ">
+          <%= result_builder.hidden_field :id %>
+          <p><strong><%= word.content %></strong></p>
 
-      <% word.answers.each do |answer| %>
-        <p>
-          <%= result_builder.radio_button :answer_id, answer.id %>
-          <%= answer.content %>
-        </p>
-      <%end%>
-    </div>
-  <% end %>
-  <%= f.submit t(:submit), class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to t(:previous), "javascript:void(0)", id: "previous", class: "pull-left" %>
-<%= link_to t(:next), "javascript:void(0)", id: "next", class: "pull-right" %>
+          <% word.answers.each do |answer| %>
+            <p>
+              <%= result_builder.radio_button :answer_id, answer.id %>
+              <%= answer.content %>
+            </p>
+          <%end%>
+        </div>
+      <% end %>
+      <%= f.submit t(:submit), class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to t(:previous), "javascript:void(0)", id: "previous", class: "pull-left" %>
+    <%= link_to t(:next), "javascript:void(0)", id: "next", class: "pull-right" %>
+  </aside>
+</div>
 
 <%= render "result_modal" %>

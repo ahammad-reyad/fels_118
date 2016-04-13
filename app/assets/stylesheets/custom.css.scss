@@ -243,3 +243,32 @@ aside {
 .users.follow {
   padding: 0;
 }
+
+ul.categories {
+  width: 100%;
+  text-align: center;
+}
+li.category {
+  display: inline-block;
+  *display: inline; /*IE7*/
+  *zoom: 1; /*IE7*/
+  background: #ADD8E6;
+  color: black;
+  margin-right: 10px;
+}
+
+.div1, .div2, .div3 {
+  display: inline;
+}
+
+.div1 {
+  width: 300px;
+}
+
+.div2 {
+  width: 50px;
+}
+
+.div3 {
+  width: 50px;
+}
