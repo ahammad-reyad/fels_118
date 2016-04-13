@@ -9,7 +9,7 @@
     <tbody>
       <% @words.each do |word| %>
         <tr>
-          <td><%= link_to word.content, word %></td>
+          <td><%= word.content %></td>
           <td>
             <% word.answers.each do |answer| %>
               <%= answer.content if answer.is_correct? %>
