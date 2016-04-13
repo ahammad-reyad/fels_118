@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def not_admin_user
     if admin_user?
       flash[:danger] = t :please_log_in_as_user
-      redirect_to login_url
+      redirect_to root_url
     end
   end
 
